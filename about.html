@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — IronHeaven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+
+<body>
+
+    <div class="back-bar">
+        <a href="index.html" class="back-link">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to Home
+        </a>
+    </div>
+
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <span class="about-eyebrow">Our Story</span>
+            <h1>Built for the Road.<br>Forged in Iron.</h1>
+        </div>
+    </section>
+
+    <section class="about-moto">
+        <div class="about-container">
+            <div class="moto-block">
+                <h2>Our Moto</h2>
+                <p class="moto-quote">"Ride Hard. Live Free."</p>
+                <p>
+                    IronHeaven was born from a simple belief: motorcycles aren't just machines —
+                    they are a way of life. We started as a small group of riders who were tired of
+                    settling for ordinary. Every curve of the road, every roar of the engine, every
+                    open horizon called us to build something worthy of the rider's spirit.
+                </p>
+                <p>
+                    We are not a brand. We are a brotherhood. Every piece we carry is hand-selected
+                    for those who demand authenticity — riders who know the difference between a bike
+                    that moves and a bike that speaks to the soul.
+                </p>
+                <p>
+                    At IronHeaven, we don't just sell motorcycles and gear. We serve a community of
+                    people who believe freedom is not a destination — it's the ride itself.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="material-symbols-outlined">bolt</span>
+                    <h3>Performance</h3>
+                    <p>Every machine we stand behind is engineered to push boundaries and handle whatever the road demands.</p>
+                </div>
+                <div class="value-card">
+                    <span class="material-symbols-outlined">shield</span>
+                    <h3>Reliability</h3>
+                    <p>We only carry gear and bikes we'd trust with our own lives. No compromises, ever.</p>
+                </div>
+                <div class="value-card">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <h3>Community</h3>
+                    <p>IronHeaven is built on real connections between real riders. When you join us, you join a family.</p>
+                </div>
+                <div class="value-card">
+                    <span class="material-symbols-outlined">explore</span>
+                    <h3>Freedom</h3>
+                    <p>We exist to get more people out on the open road — and to make sure they love every mile of it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-cta">
+        <h2>Ready to ride?</h2>
+        <p>Explore our collection and find your machine.</p>
+        <a href="explore.html"><button class="cta-btn">Explore Now</button></a>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 IronHeaven. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const header = document.querySelector("header");
+        const hamburgerBtn = document.querySelector("#hamburger-btn");
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+        hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+        closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+</body>
+
+</html>

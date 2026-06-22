@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Detail — IronHeaven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+
+<body>
+
+    <div class="detail-page">
+
+        <!-- Back button -->
+        <div class="back-bar">
+            <a href="explore.html" class="back-link">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Collection
+            </a>
+        </div>
+
+        <!-- Hero visual + key info -->
+        <section class="detail-hero" id="detail-hero">
+            <div class="detail-hero-inner">
+                <div class="detail-badge" id="detail-badge">Cruiser</div>
+                <h1 id="detail-name">Iron Shadow 750</h1>
+                <p id="detail-tagline">Classic low-rider stance, V-twin power, built for long open highway runs.</p>
+                <div class="detail-price-row">
+                    <span class="detail-price" id="detail-price">$8,500</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main content -->
+        <section class="detail-body">
+            <div class="detail-container">
+
+                <!-- Description -->
+                <div class="detail-description">
+                    <h2>About This Bike</h2>
+                    <p id="detail-description"></p>
+                </div>
+
+                <!-- Specs table -->
+                <div class="detail-specs">
+                    <h2>Specifications</h2>
+                    <table class="specs-table" id="specs-table">
+                    </table>
+                </div>
+
+                <!-- Features -->
+                <div class="detail-features">
+                    <h2>Key Features</h2>
+                    <ul class="features-list" id="features-list"></ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Related bikes -->
+        <section class="related-section">
+            <div class="related-container">
+                <h2>You Might Also Like</h2>
+                <div class="related-grid" id="related-grid"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 IronHeaven. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const bikes = {
+            "iron-shadow-750": {
+                name: "Honda CBR 750",
+                badge: "Sport",
+                tagline: "Iconic inline-four sport machine built for precision and speed.",
+                price: "$8,000",
+                heroColor: "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
+                heroImage: "Honda CBR 750.webp",
+                description: "A sport machine built for track-inspired feel, sharp performance, fearless acceleration, and precision handling. Features an inline-four engine, aggressive fairings, and a lightweight chassis.",
+                specs: [
+                    ["Engine", "749cc V-Twin, Air-Cooled *(Note: This directly contradicts the \"inline-four\" description in the text)*"],
+                    ["Power", "68 HP @ 6,000 RPM"],
+                    ["Torque", "65 Nm @ 4,500 RPM"],
+                    ["Transmission", "5-Speed Manual"],
+                    ["Seat Height", "690 mm"],
+                    ["Fuel Tank", "15 Litres"],
+                    ["Dry Weight", "228 kg"],
+                    ["Front Suspension", "41mm Telescopic Forks"],
+                    ["Rear Suspension", "Dual Shock Absorbers"],
+                    ["Brakes", "Dual Disc (Front) / Single Disc (Rear)"],
+                    ["Tyres", "130/90-16 (Front) / 180/65-16 (Rear)"],
+                    ["Colour Options", "Midnight Black, Chrome Silver, Burgundy Red"],
+                ],
+                features: [
+                    "Classic teardrop fuel tank with chrome accents",
+                    "Low-slung frame optimized for long-haul comfort",
+                    "Wide handlebar for relaxed, upright riding posture",
+                    "LED headlight with retro chrome housing",
+                    "Digital-analogue hybrid instrument cluster",
+                    "Passenger pillion with integrated grab rail",
+                    "USB charging port built into the dash",
+                ],
+                related: ["redline-r6", "nightrider-500", "gravelhawk-900"]
+            },
+            "redline-r6": {
+                name: "Kawasaki Ninja H2",
+                badge: "Sport",
+                tagline: "Supercharged street performance with aggressive styling and aerodynamic precision.",
+                price: "$32,700",
+                heroColor: "linear-gradient(135deg, #003300, #0a5d1a, #1abf4e)",
+                heroImage: "Kawasaki Ninja H2.jpg",
+                description: "The Kawasaki Ninja H2 is the ultimate flagship hypersport machine designed for riders who crave unprecedented acceleration and circuit-level technology. Engineered with a high-performance, proprietary supercharged inline-four engine, it delivers mind-bending speed and aggressive aerodynamic styling. Every element is meticulously crafted for functional beauty and ultimate force, from its high-tensile trellis frame to its advanced electronic rider aids, making it a legendary choice for tearing down closed tracks and highways alike.",
+                specs: [
+                    ["Engine", "998cc Supercharged Inline 4-Cylinder, Liquid-Cooled"],
+                    ["Power", "240 HP @ 11,500 RPM"],
+                    ["Torque", "142 Nm (105 lb-ft) @ 11,000 RPM"],
+                    ["Transmission", "6-Speed Return Shift, Dog-Ring Manual with Quick Shifter"],
+                    ["Seat Height", "825 mm (32.5 in)"],
+                    ["Fuel Tank", "17 Litres"],
+                    ["Curb Weight", "238 kg (524.8 lbs)"],
+                    ["Front Suspension", "43mm Inverted KYB AOS-II Forks (Fully Adjustable)"],
+                    ["Rear Suspension", "Uni-Trak Uni-Trak, Öhlins TTX36 Gas-Charged Shock"],
+                    ["Brakes", "Dual 330mm Discs with Brembo Stylema Monoblock Calipers (Front) / Single 250mm Disc (Rear)"],
+                    ["Tyres", "120/70-17 (Front) / 200/55-17 (Rear)"],
+                    ["Colour Options", "Mirror Coated Spark Black / Matte Carbon elements"],
+                ],
+                features: [
+                    "High-performance centrifugal supercharger developed by KHI's Aerospace division",
+                    "Lightweight, high-tensile steel trellis frame with a single-sided swingarm",
+                    "Highly aerodynamic bodywork with dual winglets for high-speed downforce",
+                    "Premium Mirror Coated Spark Black paint with highly reflective glass-flake finish",
+                    "Full LED lighting package with aggressive dual-element headlights",
+                    "Bosch IMU-enhanced electronics suite (Traction Control, Launch Control, and Cornering Management)",
+                    "Full-color TFT instrument cluster with smartphone app connectivity",
+                ],
+                related: ["iron-shadow-750", "phantom-cbr", "bmw-gs-1250"]
+            },
+            "bmw-gs-1250": {
+                name: "BMW R GS 1250",
+                badge: "Adventure",
+                tagline: "Legendary adventure capability for every road, trail, and touring mile.",
+                price: "$28,000",
+                heroColor: "linear-gradient(135deg, #0d1b0d, #1a3a1a, #2e5e2e)",
+                heroImage: "BMW R GS 1250.webp",
+                description: "The BMW R 1250 GS is the definitive adventure machine for riders who demand cross-continental capability, rugged reliability, and boundless freedom. Designed with a high-torque boxer twin engine featuring ShiftCam variable valve timing, it delivers smooth power delivery across all terrain types, from city asphalt to remote gravel roads. Every detail is optimized for endurance, from its distinctive ergonomics to its unique suspension architecture, making it the premier choice for conquering the world's most challenging routes.",
+                specs: [
+                    ["Engine", "1,254cc Air/Liquid-Cooled Boxer Twin (Horizontally Opposed)"],
+                    ["Power", "136 HP @ 7,750 RPM"],
+                    ["Torque", "143 Nm (105.5 lb-ft) @ 6,250 RPM"],
+                    ["Transmission", "6-Speed Constant Mesh with Helical Gear Teeth, Shaft Drive"],
+                    ["Seat Height", "850 mm / 870 mm (Adjustable base)"],
+                    ["Fuel Tank", "20 Litres"],
+                    ["Wet Weight", "249 kg (549 lbs)"],
+                    ["Front Suspension", "BMW Motorrad Telelever, Central Spring Strut (37mm stanchions)"],
+                    ["Rear Suspension", "Cast Aluminium Single-Sided Swingarm with BMW Motorrad Paralever"],
+                    ["Brakes", "Dual 305mm Discs with 4-piston Radial Calipers (Front) / Single 276mm Disc (Rear)"],
+                    ["Tyres", "120/70 R 19 (Front) / 170/60 R 17 (Rear)"],
+                    ["Colour Options", "Triple Black, Light White, Style Rallye (Racing Blue/Red), 40 Years GS Special Edition"],
+                ],
+                features: [
+                    "BMW ShiftCam variable engine timing system for optimized power across all RPM bounds",
+                    "Unique Telelever front suspension separating steering and braking forces",
+                    "Low-maintenance, heavy-duty shaft drive system replacing a traditional chain",
+                    "Full-color 6.5-inch TFT instrument cluster with integrated smartphone connectivity",
+                    "Dynamic Electronic Suspension Adjustment (DESA) that adapts automatically to terrain and load",
+                    "Advanced safety suite including Integral ABS Pro, Dynamic Traction Control, and multi-selectable riding modes",
+                    "Adjustable windshield and ergonomic seat positions for long-distance wind protection",
+                ],
+                related: ["gravelhawk-900", "redline-r6", "iron-shadow-750"]
+            },
+            "nightrider-500": {
+                name: "Harley-Davidson Breakout 117",
+                badge: "Cruiser",
+                tagline: "Iconic V-twin torque with bold cruiser style and effortless highway presence.",
+                price: "$23,000",
+                heroColor: "linear-gradient(135deg, #0d0d0d, #1a1a1a, #2d2d2d)",
+                heroImage: "Harley-Davidson Breakout 117.jpg",
+                description: "The Harley-Davidson Breakout 117 brings massive torque, a low-slung profile, and muscular cruiser attitude to every ride. Its signature V-twin rumble and premium styling make it a standout on open roads and city boulevards alike.",
+                specs: [
+                    ["Engine", "1,923cc (117 ci) Milwaukee-Eight 117 V-Twin, Air/Oil-Cooled"],
+                    ["Power", "104 HP @ 4,800 RPM"],
+                    ["Torque", "170 Nm (126 lb-ft) @ 3,000 RPM"],
+                    ["Transmission", "6-Speed Cruise Drive Manual, Belt Final Drive"],
+                    ["Seat Height", "650 mm (25.6 in) Laden / 665 mm Unladen"],
+                    ["Fuel Tank", "18.9 Litres (5.0 US Gallons)"],
+                    ["Weight", "310 kg (683 lbs) Wet / In Running Order"],
+                    ["Front Suspension", "Dual-bending valve 49mm Telescopic Forks"],
+                    ["Rear Suspension", "Hidden, free-piston coil-over monoshock with hydraulic preload adjust"],
+                    ["Brakes", "4-piston caliper with 300mm Disc (Front) / 2-piston with 292mm Disc (Rear)"],
+                    ["Tyres", "130/60-21 (Front) / 240/40-18 (Rear)"],
+                    ["Colour Options", "Vivid Black, Billiard Gray, Atlas Silver Metallic, Baja Orange"],
+                ],
+                features: [
+                    "High-performance Milwaukee-Eight 117 V-Twin engine with premium air/oil cooling",
+                    "Forward-facing Heavy Breather intake with an exposed filter element for maximized air volume",
+                    "Aggressive chopper stance with a long 34-degree front rake and wide handlebars",
+                    "Brilliant chrome finishes across the fender supports, side covers, mirrors, and exhaust shields",
+                    "Eye-catching 26-spoke cast-aluminum wheels in a unique gloss-black finish with machined details",
+                    "Stretched 5-gallon (18.9L) fuel tank topped with a low-profile, sleek chrome console",
+                    "Modern electronics package featuring Cruise Control, ABS, and Selectable Traction Control",
+                ],
+                related: ["iron-shadow-750", "redline-r6", "gravelhawk-900"]
+            },
+            "phantom-cbr": {
+                name: "Ducati Diavel V4",
+                badge: "Cruiser",
+                tagline: "Track-born engineering brought to the street. Zero compromise on speed.",
+                price: "$28,000",
+                heroColor: "linear-gradient(135deg, #1a0020, #3a0040, #6b0070)",
+                heroImage: "Ducati Diavel V4.jpg",
+                description: "The Ducati Diavel V4 is the definitive sport-muscle cruiser for riders who demand breathtaking superbike performance combined with an aggressive, low-slung stance. Built around the powerhouse V4 Granturismo engine, it delivers linear power at low revs and explosive acceleration on command. Every detail—from its muscular, sculpted fuel tank to its signature massive rear tire—is tuned to blend the comfort of a cruiser with the razor-sharp handling and cornering dynamics of a naked sport machine.",
+                specs: [
+                    ["Engine", "1,158cc V4 Granturismo, 90° V4, Liquid-Cooled"],
+                    ["Power", "168 HP @ 10,750 RPM"],
+                    ["Torque", "126 Nm (93 lb-ft) @ 7,500 RPM"],
+                    ["Transmission", "6-Speed with Ducati Quick Shift (DQS) Up/Down, Chain Drive"],
+                    ["Seat Height", "790 mm (31.1 in)"],
+                    ["Fuel Tank", "20 Litres"],
+                    ["Wet Weight", "236 kg (520 lbs) / 223 kg Dry (Without fuel)"],
+                    ["Front Suspension", "50mm Fully Adjustable Upside-Down (USD) Front Forks"],
+                    ["Rear Suspension", "Fully Adjustable Sachs Monoshock, Cantilever Pattern"],
+                    ["Brakes", "Dual 330mm Discs with Brembo Stylema Monoblock 4-piston Calipers (Front)"],
+                    ["Tyres", "120/70 ZR17 (Front) / 240/45 ZR17 Pirelli Diablo Rosso III (Rear)"],
+                    ["Colour Options", "Ducati Red, Thrilling Black"],
+                ],
+                features: [
+                    "High-performance V4 Granturismo engine featuring rear-cylinder deactivation tech for heat management",
+                    "Monocoque aluminum frame paired with a premium aluminum single-sided swingarm",
+                    "Eye-catching, prominent exhaust system ending in a spectacular four-outlet muffler design",
+                    "Unmistakable rear matrix LED light cluster hidden under the tail for a unique optical signature",
+                    "Clean single-seater aesthetic utilizing innovative folding passenger footrests and a retractable grab rail",
+                    "State-of-the-art electronics suite including Cornering ABS, Traction Control, Wheelie Control, and Launch Control",
+                    "High-visibility 5-inch TFT color display with integrated Bluetooth smartphone connectivity",
+                ],
+                related: ["redline-r6", "bmw-gs-1250", "iron-shadow-750"]
+            },
+            "gravelhawk-900": {
+                name: "Honda X-ADV 750",
+                badge: "Adventure",
+                tagline: "Adventure-touring comfort with premium road and trail capability in one versatile package.",
+                price: "$12,000",
+                heroColor: "linear-gradient(135deg, #1a1000, #3d2800, #6b4200)",
+                heroImage: "Honda X-ADV 750.jpg",
+                description: "The Honda X-ADV 750 is the definitive urban crossover for riders who refuse to accept traditional boundaries. Combining the daily versatility and premium comfort of a maxi-scooter with the rugged suspension, high ground clearance, and spirit of an adventure motorcycle, it is built to conquer both city gridlock and unpaved trails. Engineered with a high-torque parallel-twin engine and Honda's intelligent Dual Clutch Transmission (DCT), it delivers responsive power and effortless handling on any surface.",
+                specs: [
+                    ["Engine", "745cc Parallel-Twin, Liquid-Cooled, SOHC"],
+                    ["Power", "57.8 HP (43.1 kW) @ 6,750 RPM"],
+                    ["Torque", "69 Nm @ 4,750 RPM"],
+                    ["Transmission", "6-Speed Dual Clutch Transmission (DCT), Chain Final Drive"],
+                    ["Seat Height", "820 mm (32.3 in)"],
+                    ["Fuel Tank", "13.2 Litres"],
+                    ["Curb Weight", "236 kg (520 lbs)"],
+                    ["Front Suspension", "41mm Cartridge-style Upside-Down (USD) Forks"],
+                    ["Rear Suspension", "Pro-Link Swingarm with Mono Shock Preload Adjustment"],
+                    ["Brakes", "Dual 296mm Discs with Radial-Mount 4-piston Calipers (Front) / Single 240mm Disc (Rear)"],
+                    ["Tyres", "120/70 R17 (Front) / 160/60 R15 (Rear) on Spoked Wheels"],
+                    ["Colour Options", "Graphite Black, Matte Deep Mud Grey, Pearl Glare White Special Edition"],
+                ],
+                features: [
+                    "Advanced 6-speed Dual Clutch Transmission (DCT) with seamless automatic or manual paddle-shift modes",
+                    "Throttle-by-Wire system with 5 selectable riding modes (Standard, Sport, Rain, Gravel, and customizable User)",
+                    "Aggressive twin-LED projector headlights featuring integrated Daytime Running Lights (DRLs) and indicators",
+                    "High-clearance, long-travel suspension architecture optimized for light off-roading",
+                    "Premium 5-inch full-color TFT display featuring Honda RoadSync smartphone connectivity",
+                    "Large 22-litre under-seat storage compartment complete with a built-in USB-C charging port",
+                    "Smart Key ignition system allowing proximity-based starting and luggage access",
+                ],
+                related: ["bmw-gs-1250", "nightrider-500", "iron-shadow-750"]
+            }
+        };
+
+        const relatedNames = {
+            "iron-shadow-750": "Honda CBR 750",
+            "bmw-gs-1250": "BMW R GS 1250",
+            "redline-r6": "Kawasaki Ninja H2",
+            "nightrider-500": "Harley-Davidson Breakout 117",
+            "phantom-cbr": "Ducati Diavel V4",
+            "gravelhawk-900": "GravelHawk 900"
+        };
+
+        const relatedImageClasses = {
+            "iron-shadow-750": "honda-cbr-img",
+            "redline-r6": "kawasaki-h2-img",
+            "bmw-gs-1250": "bmw-gs-img",
+            "nightrider-500": "harley-breakout-img",
+            "phantom-cbr": "ducati-diavel-img",
+            "gravelhawk-900": "honda-xadv-img"
+        };
+
+        const relatedCategories = {
+            "iron-shadow-750": "sport",
+            "redline-r6": "sport",
+            "bmw-gs-1250": "adventure",
+            "nightrider-500": "cruiser",
+            "phantom-cbr": "cruiser",
+            "gravelhawk-900": "adventure"
+        };
+
+        const relatedPrices = {
+            "iron-shadow-750": "$8,000",
+            "redline-r6": "$32,700",
+            "bmw-gs-1250": "$28,000",
+            "nightrider-500": "$23,000",
+            "phantom-cbr": "$28,000",
+            "gravelhawk-900": "$12,000"
+        };
+
+        const relatedDescriptions = {
+            "iron-shadow-750": "Iconic inline-four sport machine built for precision and speed.",
+            "redline-r6": "Supercharged street performance with aggressive styling and aerodynamic precision.",
+            "bmw-gs-1250": "Legendary adventure capability for every road, trail, and touring mile.",
+            "nightrider-500": "Classic cruiser power with modern swagger and a commanding road presence.",
+            "phantom-cbr": "Track-born engineering brought to the street with zero compromise on speed.",
+            "gravelhawk-900": "Adventure-touring comfort with premium road and trail capability in one versatile package."
+        };
+
+        const relatedBadges = {
+            "iron-shadow-750": "Cruiser",
+            "redline-r6": "Sport",
+            "bmw-gs-1250": "Adventure",
+            "nightrider-500": "Cruiser",
+            "phantom-cbr": "Sport",
+            "gravelhawk-900": "Adventure"
+        };
+
+        // Get bike ID from URL
+        const params = new URLSearchParams(window.location.search);
+        const bikeId = params.get("bike") || "iron-shadow-750";
+        const bike = bikes[bikeId];
+
+        if (bike) {
+            document.title = bike.name + " — IronHeaven";
+            const detailHero = document.getElementById("detail-hero");
+            detailHero.style.background = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${bike.heroImage}")`;
+            detailHero.style.backgroundPosition = "center";
+            detailHero.style.backgroundSize = "cover";
+            detailHero.style.backgroundRepeat = "no-repeat";
+            document.getElementById("detail-badge").textContent = bike.badge;
+            document.getElementById("detail-name").textContent = bike.name;
+            document.getElementById("detail-tagline").textContent = bike.tagline;
+            document.getElementById("detail-price").textContent = bike.price;
+            document.getElementById("detail-description").textContent = bike.description;
+
+            // Specs
+            const table = document.getElementById("specs-table");
+            bike.specs.forEach(([label, value]) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td class="spec-label">${label}</td><td class="spec-value">${value}</td>`;
+                table.appendChild(row);
+            });
+
+            // Features
+            const featuresList = document.getElementById("features-list");
+            bike.features.forEach(f => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span class="material-symbols-outlined">check_circle</span>${f}`;
+                featuresList.appendChild(li);
+            });
+
+            // Related bikes
+            const relatedGrid = document.getElementById("related-grid");
+            bike.related.forEach(id => {
+                const card = document.createElement("div");
+                card.className = "bike-card";
+                card.dataset.category = relatedCategories[id];
+                card.innerHTML = `
+                <div class="bike-img ${relatedImageClasses[id]}"></div>
+                <div class="bike-info">
+                    <span class="bike-tag">${relatedBadges[id]}</span>
+                    <h3>${relatedNames[id]}</h3>
+                    <p>${relatedDescriptions[id]}</p>
+                    <div class="bike-footer">
+                        <span class="bike-price">${relatedPrices[id]}</span>
+                        <a href="bike-detail.html?bike=${id}"><button class="enquire-btn">Detail</button></a>
+                    </div>
+                </div>
+            `;
+                relatedGrid.appendChild(card);
+            });
+        }
+
+        // Navbar
+        const header = document.querySelector("header");
+        const hamburgerBtn = document.querySelector("#hamburger-btn");
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+        hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+        closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+
+</body>
+
+</html>

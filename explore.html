@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore — IronHeaven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+
+<body>
+
+    <div class="back-bar">
+        <a href="index.html" class="back-link">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to Home
+        </a>
+    </div>
+
+    <section class="explore-hero">
+        <div class="explore-hero-content">
+            <span class="about-eyebrow">Our Collection</span>
+            <h1>Find Your Ride</h1>
+            <p>Hand-picked machines for every kind of rider.</p>
+        </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="explore-container">
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cruiser">Cruiser</button>
+                <button class="filter-btn" data-filter="sport">Sport</button>
+                <button class="filter-btn" data-filter="adventure">Adventure</button>
+            </div>
+
+            <div class="bikes-grid" id="bikes-grid">
+
+                <div class="bike-card" data-category="sport">
+                    <div class="bike-img honda-cbr-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Sport</span>
+                        <h3>Honda CBR 750</h3>
+                        <p>Iconic inline-four sport machine built for precision and speed.</p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$8,000</span>
+                            <a href="bike-detail.html?bike=iron-shadow-750"><button
+                                    class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bike-card" data-category="sport">
+                    <div class="bike-img kawasaki-h2-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Sport</span>
+                        <h3>Kawasaki Ninja H2</h3>
+                        <p>Supercharged street performance with aggressive styling and aerodynamic precision.</p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$32,700</span>
+                            <a href="bike-detail.html?bike=redline-r6"><button class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bike-card" data-category="adventure">
+                    <div class="bike-img bmw-gs-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Adventure</span>
+                        <h3>BMW R 1250 GS</h3>
+                        <p>Legendary adventure capability for every road, trail, and touring mile.</p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$28,000</span>
+                            <a href="bike-detail.html?bike=bmw-gs-1250"><button class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bike-card" data-category="adventure">
+                    <div class="bike-img honda-xadv-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Adventure</span>
+                        <h3>Honda X-ADV 750</h3>
+                        <p>Adventure-touring comfort with premium road and trail capability in one versatile package.
+                        </p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$12,000</span>
+                            <a href="bike-detail.html?bike=gravelhawk-900"><button
+                                    class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bike-card" data-category="cruiser">
+                    <div class="bike-img harley-breakout-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Cruiser</span>
+                        <h3>Harley-Davidson Breakout 117</h3>
+                        <p>Classic cruiser power with modern swagger and a commanding road presence.</p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$23,000</span>
+                            <a href="bike-detail.html?bike=nightrider-500"><button
+                                    class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bike-card" data-category="cruiser">
+                    <div class="bike-img ducati-diavel-img"></div>
+                    <div class="bike-info">
+                        <span class="bike-tag">Cruiser</span>
+                        <h3>Ducati Diavel V4</h3>
+                        <p>Track-born engineering brought to the street. Zero compromise on speed.</p>
+                        <div class="bike-footer">
+                            <span class="bike-price">$28,000</span>
+                            <a href="bike-detail.html?bike=phantom-cbr"><button class="enquire-btn">Detail</button></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 IronHeaven. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const header = document.querySelector("header");
+        const hamburgerBtn = document.querySelector("#hamburger-btn");
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+        if (header && hamburgerBtn && closeMenuBtn) {
+            hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+            closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+        }
+
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const bikeCards = document.querySelectorAll(".bike-card");
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                const filter = btn.dataset.filter;
+                bikeCards.forEach(card => {
+                    if (filter === "all" || card.dataset.category === filter) {
+                        card.style.display = "flex";
+                        card.style.animation = "fadeIn 0.3s ease";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
